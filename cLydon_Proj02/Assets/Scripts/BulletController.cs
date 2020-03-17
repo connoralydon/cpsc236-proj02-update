@@ -12,7 +12,9 @@ public class BulletController : MonoBehaviour
     
 
     private Text scoreText;
-    private int mult = powerUpMult.GetComponent<PowerUpMultController>().multInit;
+
+    private int mult;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,8 +44,10 @@ public class BulletController : MonoBehaviour
         {
             GameObject.Destroy(this.gameObject);
             GameObject.Destroy(collision.gameObject);
-            scoreText.GetComponent<ScoreController>().score += (mult * 10);
+
+            scoreText.GetComponent<ScoreController>().score += mult * 10;
             scoreText.GetComponent<ScoreController>().UpdateScore();
+
         }        
     }
 }
