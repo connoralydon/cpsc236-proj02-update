@@ -123,7 +123,7 @@ MonoBehaviour:
   Bullet: {fileID: 1878773814101453321, guid: e5f8458852ee44a558bc21b507b184e7, type: 3}
   timerMin: 1
   timerMax: 4
-  canFireBullets: 0
+  canFireBullets: 1
 --- !u!61 &8018348795900114337
 BoxCollider2D:
   m_ObjectHideFlags: 0

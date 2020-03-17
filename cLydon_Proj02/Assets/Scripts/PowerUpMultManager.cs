@@ -9,7 +9,6 @@ public class PowerUpMultManager : MonoBehaviour
     private float maxTimer;
     public GameObject powerUpMult;
 
-    public int multInit = 1;
     public float timerMin = 20f;
     public float timerMax = 30f;
 

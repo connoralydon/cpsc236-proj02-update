@@ -8,12 +8,13 @@ public class BulletController : MonoBehaviour
 
     public float speed;
     private Rigidbody2D rb;
-    private static GameObject powerUpMult;
+    private static GameObject pullMult;
 
     
-    private int mult = powerUpMult.GetComponent<PowerUpMultController>().multInit;
     private ScoreController scoreText;
 
+    static int multInitMod = 1;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -39,14 +40,23 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "PowerUp")
         {
             GameObject.Destroy(this.gameObject);
             GameObject.Destroy(collision.gameObject);
 
-            scoreText.GetComponent<ScoreController>().score += mult * 10;
+            multInitMod += 1; //add to multiplier when it hits
+        }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            GameObject.Destroy(this.gameObject);
+            GameObject.Destroy(collision.gameObject);
+
+            int scoreMult = multInitMod * 10;
+            scoreText.GetComponent<ScoreController>().score += scoreMult;
             scoreText.GetComponent<ScoreController>().UpdateScore();
 
-        }        
+        }
+       
     }
 }

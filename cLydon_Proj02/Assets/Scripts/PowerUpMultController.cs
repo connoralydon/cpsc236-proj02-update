@@ -9,8 +9,6 @@ public class PowerUpMultController : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
 
-    public int multInit = 1;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,16 +24,5 @@ public class PowerUpMultController : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "PlayerBullet")
-        {
-            GameObject.Destroy(this.gameObject);
-            GameObject.Destroy(collision.gameObject);
-
-            multInit += 1; //double multiplier when it hits
-        }
-    }
+    } 
 }
