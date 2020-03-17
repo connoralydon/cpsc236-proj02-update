@@ -10,14 +10,14 @@ public class PowerUpStraightController : MonoBehaviour
     private Rigidbody2D rb;
 
     public int straightScore = 50;
-    private Text scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+    private ScoreController scoreText;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(0, speed);
-
+        scoreText = GameObject.Find("ScoreText").GetComponent<ScoreController>();
     }
 
     // Update is called once per frame
@@ -35,6 +35,7 @@ public class PowerUpStraightController : MonoBehaviour
         {
             GameObject.Destroy(this.gameObject);
             GameObject.Destroy(collision.gameObject);
+
             scoreText.GetComponent<ScoreController>().score += straightScore; //add to score a straight
             scoreText.GetComponent<ScoreController>().UpdateScore();
         }

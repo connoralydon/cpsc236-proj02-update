@@ -9,11 +9,10 @@ public class BulletController : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
     private static GameObject powerUpMult;
+
     
-
-    private Text scoreText;
-
-    private int mult;
+    private int mult = powerUpMult.GetComponent<PowerUpMultController>().multInit;
+    private ScoreController scoreText;
 
 
     // Start is called before the first frame update
@@ -21,7 +20,7 @@ public class BulletController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(0, speed);
-        scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+        scoreText = GameObject.Find("ScoreText").GetComponent<ScoreController>();
     }
 
     // Update is called once per frame
